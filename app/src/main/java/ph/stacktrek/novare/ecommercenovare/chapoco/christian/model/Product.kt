@@ -2,12 +2,11 @@ package ph.stacktrek.novare.ecommercenovare.chapoco.christian.model
 
 import java.math.BigDecimal
 
-class Product(var name: String) {
+class Product(var name: String, var description: String) {
     lateinit var id: String
     lateinit var price: BigDecimal
-    lateinit var brand: String
     lateinit var measurement: String
-    lateinit var description : String
+    lateinit var brand: String
     var measurementUnit: MeasurementUnit = MeasurementUnit.NOT_SET
     var quantity: Int = 0
 }

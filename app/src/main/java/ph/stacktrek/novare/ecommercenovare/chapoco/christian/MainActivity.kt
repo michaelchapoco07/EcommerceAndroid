@@ -10,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.adapters.ProductAdapter
+import ph.stacktrek.novare.ecommercenovare.chapoco.christian.adapters.ProductAdapter.ViewHolder
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.adapters.SwipeCallback
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.dao.ProductDAO
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.dao.ProductDAOSQLLiteImplementation
-import ph.stacktrek.novare.ecommercenovare.chapoco.christian.dao.ProductDAOStubImplementation
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.databinding.ActivityMainBinding
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.databinding.DialogueAddProductBinding
+import ph.stacktrek.novare.ecommercenovare.chapoco.christian.databinding.DialogueProductBinding
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.model.Product
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         binding.fabAddProductButton.setOnClickListener {
             showAddProductDialogue().show()
         }
+
+
 
     }
 
@@ -73,10 +76,9 @@ class MainActivity : AppCompatActivity() {
 
             with(builder) {
                 setPositiveButton("ADD", DialogInterface.OnClickListener { dialog, id ->
-                    val product = Product("")
+                    val product = Product(" "," ")
                     product.name = dialogueAddProductBinding.productName.text.toString()
                     product.description = dialogueAddProductBinding.productDescription.text.toString()
-                    product.brand = dialogueAddProductBinding.productBrand.text.toString()
 
                     val productDAO = ProductDAOSQLLiteImplementation(applicationContext)
                     productDAO.addProduct(product)
@@ -91,6 +93,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    
+
 
     override fun onBackPressed() {
         super.onBackPressed()

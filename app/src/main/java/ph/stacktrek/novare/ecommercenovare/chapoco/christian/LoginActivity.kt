@@ -1,12 +1,15 @@
 package ph.stacktrek.novare.ecommercenovare.chapoco.christian
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.databinding.ActivityLoginBinding
+import ph.stacktrek.novare.ecommercenovare.chapoco.christian.databinding.ActivityMainBinding
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.utility.PreferenceUtility
 
 class LoginActivity : AppCompatActivity() {
@@ -78,11 +81,30 @@ class LoginActivity : AppCompatActivity() {
                     Snackbar.LENGTH_SHORT).show()
             }
         }
+
         //SHARED PREFERENCES FOR LEADERBOARDS
         PreferenceUtility(applicationContext).apply {
             binding.usernametext.setText(getStringPreferences("username" ))
             binding.passwordtext.setText(getStringPreferences("password" ))
         }
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.home -> {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.products -> {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
+
 
 }

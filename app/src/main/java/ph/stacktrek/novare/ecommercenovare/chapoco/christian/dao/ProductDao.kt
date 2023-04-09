@@ -17,18 +17,18 @@ class ProductDAOStubImplementation(applicationContext: Context) : ProductDAO{
     private var productList: ArrayList<Product> = ArrayList()
 
     init{
-        productList.add(Product("Corned Beef"))
-        productList.add(Product("Canned Tuna"))
-        productList.add(Product("Canned Carrots and Corn"))
-        productList.add(Product("Powdered Milk"))
-        productList.add(Product("Coffee"))
-        productList.add(Product("Canned Beer"))
-        productList.add(Product("Canned Soda"))
-        productList.add(Product("Creamer"))
-        productList.add(Product("Bottled Water"))
-        productList.add(Product("Bottled Soda"))
-        productList.add(Product("Bottled Tea"))
-        productList.add(Product("Bottled Milk Tea"))
+        productList.add(Product("Corned Beef", "HAHA"))
+        productList.add(Product("Canned Tuna", "HAHA"))
+        productList.add(Product("Canned Carrots and Corn", "HAHA"))
+        productList.add(Product("Powdered Milk", "HAHA"))
+        productList.add(Product("Coffee", "HAHA"))
+        productList.add(Product("Canned Beer", "HAHA"))
+        productList.add(Product("Canned Soda", "HAHA"))
+        productList.add(Product("Creamer", "HAHA"))
+        productList.add(Product("Bottled Water", "HAHA"))
+        productList.add(Product("Bottled Soda", "HAHA"))
+        productList.add(Product("Bottled Tea", "HAHA"))
+        productList.add(Product("Bottled Milk Tea", "HAHA"))
     }
 
     override fun addProduct(product: Product) {
@@ -89,7 +89,7 @@ class ProductDAOSQLLiteImplementation(var context: Context): ProductDAO{
         var product: Product
         if(cursor.moveToFirst()){
             do{
-                product = Product("")
+                product = Product("","")
                 product.name = cursor.getString(1)
                 product.id = cursor.getInt(0).toString()
                 result.add(product)
