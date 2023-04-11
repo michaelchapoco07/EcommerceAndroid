@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import ph.stacktrek.novare.ecommercenovare.chapoco.christian.adapters.ProductAdapter
@@ -53,11 +54,11 @@ class MainActivity : AppCompatActivity() {
             productDAO.getProducts())
 
         with(binding.productsList){
-            layoutManager = LinearLayoutManager(applicationContext,
-            LinearLayoutManager.VERTICAL,
-            false)
+//            layoutManager = LinearLayoutManager(applicationContext,
+//            LinearLayoutManager.VERTICAL,
+//            false)
 
-//            layoutManager = GridLayoutManager(applicationContext, 2)
+            layoutManager = GridLayoutManager(applicationContext, 2)
             adapter = productAdapter
         }
 

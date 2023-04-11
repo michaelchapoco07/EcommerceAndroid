@@ -1,8 +1,9 @@
 package ph.stacktrek.novare.ecommercenovare.chapoco.christian.model
 
+import java.io.Serializable
 import java.math.BigDecimal
 
-class Product(var name: String, var description: String) {
+class Product(var name: String, var description: String) : Serializable {
     lateinit var id: String
     lateinit var price: BigDecimal
     lateinit var measurement: String
